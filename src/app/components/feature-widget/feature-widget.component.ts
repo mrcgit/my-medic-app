@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { FeatureModel } from '../../core/model/feature.model';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'app-feature-widget',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, RouterModule],
   templateUrl: './feature-widget.component.html',
   styleUrl: './feature-widget.component.scss'
 })
@@ -23,6 +24,7 @@ export class FeatureWidgetComponent implements OnInit{
 
   selectButton(idx: number){
     this.buttonIndex = idx;
+    // Eliminare quando verra' inserito NGRX e il dispatch della action
   }
 
   

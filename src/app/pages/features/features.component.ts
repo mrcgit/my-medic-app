@@ -16,7 +16,7 @@ export class FeaturesComponent {
   features: FeatureModel[] = [{
     name: 'Pressione arteriosa', 
     description: 'Pianifica la misura della pressione arteriosa o registra una nuova misurazione.',
-    buttons: [{label: 'Registra'},{label: 'Pianifica'}],
+    buttons: [{label: 'Registra', action: 'insert-pressure'},{label: 'Pianifica', action: 'planning-pressure'}],
     icon: 'bi bi-balloon-heart'
     }];
 

@@ -1,6 +1,6 @@
 interface ButtonModel{
     label: string,
-    action?: ()=> void
+    action: string
 }
 
 
