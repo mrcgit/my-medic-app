@@ -8,5 +8,6 @@ export interface FeatureModel{
     name: string;
     description: string;
     buttons: ButtonModel[]
-    icon: string
+    icon: string,
+    bg: string
 }

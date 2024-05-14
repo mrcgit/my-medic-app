@@ -17,7 +17,8 @@ export class FeaturesComponent {
     name: 'Pressione arteriosa', 
     description: 'Pianifica la misura della pressione arteriosa o registra una nuova misurazione.',
     buttons: [{label: 'Registra', action: 'insert-pressure'},{label: 'Pianifica', action: 'planning-pressure'}],
-    icon: 'bi bi-balloon-heart'
+    icon: 'bi bi-balloon-heart',
+    bg: 'pressure-misure'
     }];
 
 }
