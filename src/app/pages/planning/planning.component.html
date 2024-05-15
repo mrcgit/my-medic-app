@@ -10,9 +10,8 @@
     </div>
     <div class="content">
         <div class="content-row">
-            <button (click)="openPlanning()" class="button" class="btn btn-primary btn-sm">Pianifica</button>
-      
-            <button (click)="openRegister()" type="button" class="btn btn-primary btn-sm">Registra</button>
+            <button (click)="openRegister()" type="button" class="btn btn-primary btn-sm">{{model.buttons[0].label}}</button>
+            <button (click)="openPlanning()" class="button" class="btn btn-primary btn-sm">{{model.buttons[1].label}}</button>
         </div>
         
         <!-- PLANNING PAN-->

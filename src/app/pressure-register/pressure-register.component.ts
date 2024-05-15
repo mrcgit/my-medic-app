@@ -14,8 +14,8 @@ export class PressureRegisterComponent {
 
   save(){
     if(this.pressureMax && this.pressureMin){
-
-      console.log("Registrata la misura: " + this.pressureMin + "-" + this.pressureMax + "ore" + new Date());
+      const item = JSON.stringify({'pressureMax': this.pressureMax, 'pressureMin': this.pressureMin, date: new Date()});
+      console.log(item);
     }
   }
 

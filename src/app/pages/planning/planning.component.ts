@@ -16,8 +16,13 @@ import { PressureRegisterComponent } from "../../pressure-register/pressure-regi
 export class PlanningComponent {
 
   feature: string = '';
+  actionType: string | null = null;
+
+
   isOpenPlanning = false;
   isOpenRegister = false;
+
+
   hours: string = '';
   minutes: string = '';
   selectedTime: string | undefined= undefined;
@@ -26,9 +31,9 @@ export class PlanningComponent {
   model : FeatureModel =   {
     name: 'Pressione arteriosa', 
     description: 'Pianifica la misura della pressione arteriosa o registra una nuova misurazione.',
-    buttons: [{label: 'Registra', action: 'insert-pressure'},{label: 'Pianifica', action: 'planning-pressure'}],
+    buttons: [{label: 'Registra', action: '/planning/pressure/register'},{label: 'Pianifica', action: '/planning/pressure/plan'}],
     icon: 'bi bi-balloon-heart',
-    bg: 'pressure-misure.jpg',
+    bg: 'pressure-misure',
     planningType: 'time',
   }
 
@@ -37,9 +42,16 @@ export class PlanningComponent {
     this.route.paramMap.subscribe(
       (params)=> {
         let feature = params.get('feature')
+        let actionType = params.get('actionType')
         console.log(feature);
         if(feature){
-         this.feature = feature
+         this.feature = feature;
+         this.actionType = actionType;
+         if(actionType === 'plan'){
+          this.isOpenPlanning = true;
+         } else if(actionType === 'register'){
+          this.isOpenRegister = true;
+         }
         } else {
           console.error("Errore recupero selle sezione")
         }

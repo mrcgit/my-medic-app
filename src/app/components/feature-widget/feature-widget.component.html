@@ -11,7 +11,7 @@
     </div>
     <div class="buttons">
         @for(button of model?.buttons; track $index){
-            <div [routerLink]="['/planning/pressure']"  [class.selected-button]="buttonIndex === $index"  (click)="selectButton($index)" class="button">{{button.label}}</div>
+            <div [routerLink]="[button.action]"  [class.selected-button]="buttonIndex === $index"  (click)="selectButton($index)" class="button">{{button.label}}</div>
         }
     </div>
 </div>

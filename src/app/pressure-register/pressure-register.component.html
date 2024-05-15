@@ -1,11 +1,11 @@
 <div class="planning-component">
     <form ngNativeValidate >
         <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Minima</span>
+            <span class="input-group-text" id="inputGroup-sizing-sm">Pressione Min.</span>
             <input id="pressumreMin" name="presureMin"  [(ngModel)]="pressureMin" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
         </div>
         <div class="input-group input-group-sm mb-3">
-            <span class="input-group-text" id="inputGroup-sizing-sm">Massima</span>
+            <span class="input-group-text" id="inputGroup-sizing-sm">Pressione Max.</span>
             <input id="pressumreMax" name="presureMax"  [(ngModel)]="pressureMax" type="text" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-sm" required>
         </div>
         <button (click)="save()"  type="submit" class="btn btn-primary btn-sm">Salva</button> 
