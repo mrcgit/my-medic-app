@@ -14,16 +14,28 @@ model: any[] = [
     "name": "Max",
     "series": [
       {
-        "name": "Lun 07:30",
-        "value": 130
+        "name": "sab 09:00",
+        "value": 160
       },
       {
-        "name": "Lun 12:00",
-        "value": 120
-      },
-      {
-        "name": "Lun 20:00",
+        "name": "sab 14:00",
         "value": 150
+      },
+      {
+        "name": "sab 20:00",
+        "value": 140
+      },
+      {
+        "name": "dom 09:00",
+        "value": 140
+      },
+      {
+        "name": "dom 14:00",
+        "value": 140
+      },
+      {
+        "name": "dom 20:00",
+        "value": 140
       }
     ]
   },
@@ -32,15 +44,27 @@ model: any[] = [
     "name": "Min",
     "series": [
       {
-        "name": "Lun 07:30",
-        "value": 60
+        "name": "sab 09:00",
+        "value": 80
       },
       {
-        "name": "Lun 12:00",
-        "value": 89
+        "name": "sab 14:00",
+        "value": 90
       },
       {
-        "name": "Lun 20:00",
+        "name": "sab 20:00",
+        "value": 90
+      },
+      {
+        "name": "dom 09:00",
+        "value": 85
+      },
+      {
+        "name": "dom 14:00",
+        "value": 80
+      },
+      {
+        "name": "dom 20:00",
         "value": 70
       }
     ]
