@@ -4,6 +4,7 @@ import {RouterModule} from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
+
 @Component({
     selector: 'app-root',
     standalone: true,

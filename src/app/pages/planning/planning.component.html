@@ -16,17 +16,13 @@
         </div>
 
         <div *ngIf="isOpenPlanning" class="planning-component">
-            <form>
-                <div class="form-group">
-                    <label for="hours">Ore</label>
-                    <input name="hours" [(ngModel)]="hours" type="range" class="form-range" min="0" max="24" id="hours">
-                    <label for="minutes">Minuti</label>
-                    <input name="minutes" [(ngModel)]="minutes" type="range" class="form-range" min="0" max="59" id="minutes">
-                </div>
-                {{hours | number:'2.0' }}:{{minutes | number:'2.0'}}
-                
-            </form>
 
+            <div class="input-group mb-3">
+                <span class="input-group-text" id="basic-addon1">Ore</span>
+                <input class="form-control" [ngxTimepicker]="picker" value="12" [format]="24" [(ngModel)]="selectedTime" placeholder="00:00" aria-describedby="basic-addon1">
+                <ngx-material-timepicker #picker></ngx-material-timepicker>
+                <button type="button" class="btn btn-primary btn-sm">Aggiungi</button>
+            </div>
         </div>
     </div>
 </div>

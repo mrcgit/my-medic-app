@@ -2,11 +2,12 @@ import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
+import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 
 @Component({
   selector: 'app-planning',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, NgxMaterialTimepickerModule],
   templateUrl: './planning.component.html',
   styleUrl: './planning.component.scss'
 })
@@ -16,6 +17,7 @@ export class PlanningComponent {
   isOpenPlanning = false;
   hours: string = '';
   minutes: string = '';
+  selectedTime: string | undefined= undefined;
 
   model =   {
     name: 'Pressione arteriosa', 
@@ -24,6 +26,7 @@ export class PlanningComponent {
     icon: 'bi bi-balloon-heart',
     bg: 'pressure-misure.jpg'
   }
+
 
 
     
