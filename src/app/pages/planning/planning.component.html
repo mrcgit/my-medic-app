@@ -2,7 +2,7 @@
 <div class="page-wrapper">
     <div class="header">
         <div class="icon" [class]="model.icon"></div>
-        <span class="title">{{model.name}}</span>
+        <h5 class="title">{{model.name}}</h5>
         <div class="description">{{model.description}}</div>
         <div class="image">
             <img src="../../../assets/prussure-misure.jpg" />
@@ -12,17 +12,28 @@
         <div class="content-row">
             <button (click)="openPlanning()" class="button" class="btn btn-primary btn-sm">Pianifica</button>
       
-            <button type="button" class="btn btn-primary btn-sm">Registra</button>
+            <button (click)="openRegister()" type="button" class="btn btn-primary btn-sm">Registra</button>
         </div>
-
-        <div *ngIf="isOpenPlanning" class="planning-component">
+        
+        <!-- PLANNING PAN-->
+        <div *ngIf="isOpenPlanning  && model.planningType === 'time'" class="planning-component">
 
             <div class="input-group mb-3">
                 <span class="input-group-text" id="basic-addon1">Ore</span>
                 <input class="form-control" [ngxTimepicker]="picker" value="12" [format]="24" [(ngModel)]="selectedTime" placeholder="00:00" aria-describedby="basic-addon1">
                 <ngx-material-timepicker #picker></ngx-material-timepicker>
-                <button type="button" class="btn btn-primary btn-sm">Aggiungi</button>
+
+                <button *ngIf="selectedTime!== undefined" (click)="addPlanning(selectedTime)"  type="button" class="btn btn-primary btn-sm">Aggiungi</button>
             </div>
+
+            <ul *ngIf="hasPlanning()" class="list-group list-group-flush">
+                <h5>Pianificazione</h5>
+                @for(item of plannings; track $index){
+                    <li class="list-group-item">{{item}} <button (click)="dropItem($index)" type="button" class="btn btn-primary btn-sm">Elimina</button> </li>
+                }
+              </ul>
         </div>
+        <!-- REGISTER PAN-->
+        <app-pressure-register *ngIf="isOpenRegister"></app-pressure-register>
     </div>
 </div>

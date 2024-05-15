@@ -2,6 +2,7 @@
 
 .page-wrapper{
     padding: 20px;
+    margin-bottom: 80px;
 
 
     .header{
@@ -26,7 +27,7 @@
             padding: 20px;
     
             img{
-                width: 100%;
+                max-width: 300px;
                 height: auto;
             }
         }
@@ -39,6 +40,13 @@
                 margin: 0 10px;
                 border-radius: 5px;
             }
+        }
+    }
+
+    .list-group-item{
+        display: flex;
+        button{
+            margin-left:auto;
         }
     }
 

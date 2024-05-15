@@ -10,4 +10,5 @@ export interface FeatureModel{
     buttons: ButtonModel[]
     icon: string,
     bg: string
+    planningType: string
 }
