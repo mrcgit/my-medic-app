@@ -10,9 +10,23 @@
     </div>
     <div class="content">
         <div class="content-row">
-            <button type="button" class="btn btn-primary btn-sm">Pianifica</button>
+            <button (click)="openPlanning()" class="button" class="btn btn-primary btn-sm">Pianifica</button>
       
             <button type="button" class="btn btn-primary btn-sm">Registra</button>
+        </div>
+
+        <div *ngIf="isOpenPlanning" class="planning-component">
+            <form>
+                <div class="form-group">
+                    <label for="hours">Ore</label>
+                    <input name="hours" [(ngModel)]="hours" type="range" class="form-range" min="0" max="24" id="hours">
+                    <label for="minutes">Minuti</label>
+                    <input name="minutes" [(ngModel)]="minutes" type="range" class="form-range" min="0" max="59" id="minutes">
+                </div>
+                {{hours | number:'2.0' }}:{{minutes | number:'2.0'}}
+                
+            </form>
+
         </div>
     </div>
 </div>

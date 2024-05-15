@@ -1,16 +1,22 @@
 import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-planning',
   standalone: true,
-  imports: [CommonModule],
+  imports: [CommonModule, FormsModule],
   templateUrl: './planning.component.html',
   styleUrl: './planning.component.scss'
 })
 export class PlanningComponent {
+
   feature: string = '';
+  isOpenPlanning = false;
+  hours: string = '';
+  minutes: string = '';
+
   model =   {
     name: 'Pressione arteriosa', 
     description: 'Pianifica la misura della pressione arteriosa o registra una nuova misurazione.',
@@ -18,6 +24,7 @@ export class PlanningComponent {
     icon: 'bi bi-balloon-heart',
     bg: 'pressure-misure.jpg'
   }
+
 
     
 
@@ -35,6 +42,14 @@ export class PlanningComponent {
         }
       }
     )
+  }
+
+  openPlanning() {
+    this.isOpenPlanning = true; 
+  }
+
+  closePlanning(){
+    this.isOpenPlanning = false;
   }
 
   getBg(){
