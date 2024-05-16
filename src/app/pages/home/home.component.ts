@@ -1,12 +1,13 @@
 import { Component } from '@angular/core';
 import { LinearGraphComponent } from "../../linear-graph/linear-graph.component";
+import { TabellaGeneraleComponent } from "../../tabella-generale/tabella-generale.component";
 
 @Component({
     selector: 'app-home',
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
-    imports: [LinearGraphComponent]
+    imports: [LinearGraphComponent, TabellaGeneraleComponent]
 })
 export class HomeComponent {
 model: any[] = [
