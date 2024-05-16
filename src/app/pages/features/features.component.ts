@@ -1,7 +1,8 @@
-import { Component } from '@angular/core';
+import { Component, OnInit, inject } from '@angular/core';
 import { FeatureWidgetComponent } from "../../components/feature-widget/feature-widget.component";
-import { FeatureModel } from '../../core/model/feature.model';
 import { CommonModule } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { selectFeatures } from '../../store/features/features.selectors';
 
 @Component({
     selector: 'app-features',
@@ -13,13 +14,10 @@ import { CommonModule } from '@angular/common';
 export class FeaturesComponent {
   title: string = "Funzionalità";
 
-  features: FeatureModel[] = [{
-    name: 'Pressione arteriosa', 
-    description: 'Pianifica la misura della pressione arteriosa o registra una nuova misurazione.',
-    buttons: [{label: 'Registra', action: '/planning/pressure/register'},{label: 'Pianifica', action: '/planning/pressure/plan'}],
-    icon: 'bi bi-balloon-heart',
-    bg: 'pressure-misure',
-    planningType: 'time',
-    }];
+  store = inject(Store);
+
+  features$ = this.store.selectSignal(selectFeatures);
+  
+
 
 }

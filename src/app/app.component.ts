@@ -1,8 +1,10 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {RouterModule} from '@angular/router';
 import { NavbarComponent } from "./components/navbar/navbar.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { Store } from '@ngrx/store';
+import { FeatureActions } from './store/features/features.actions';
 
 
 @Component({
@@ -14,4 +16,12 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 })
 export class AppComponent {
   title = 'my-medic-app';
+
+  store = inject(Store)
+
+
+  constructor(){
+   
+    this.store.dispatch(FeatureActions.loadFeatures())
+  }
 }

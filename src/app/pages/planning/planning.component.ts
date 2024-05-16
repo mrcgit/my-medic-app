@@ -1,10 +1,12 @@
 import { CommonModule } from '@angular/common';
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { FeatureModel } from '../../core/model/feature.model';
 import { PressureRegisterComponent } from "../../pressure-register/pressure-register.component";
+import { Store } from '@ngrx/store';
+import { selectCurrentFeature } from '../../store/features/features.selectors';
 
 @Component({
     selector: 'app-planning',
@@ -14,6 +16,9 @@ import { PressureRegisterComponent } from "../../pressure-register/pressure-regi
     imports: [CommonModule, FormsModule, NgxMaterialTimepickerModule, PressureRegisterComponent]
 })
 export class PlanningComponent {
+
+  store = inject(Store);
+  model: FeatureModel  = this.store.selectSignal(selectCurrentFeature)();
 
   feature: string = '';
   actionType: string | null = null;
@@ -28,24 +33,14 @@ export class PlanningComponent {
   selectedTime: string | undefined= undefined;
   plannings: string[] = [];
 
-  model : FeatureModel =   {
-    name: 'Pressione arteriosa', 
-    description: 'Pianifica la misura della pressione arteriosa o registra una nuova misurazione.',
-    buttons: [{label: 'Registra', action: '/planning/pressure/register'},{label: 'Pianifica', action: '/planning/pressure/plan'}],
-    icon: 'bi bi-balloon-heart',
-    bg: 'pressure-misure',
-    planningType: 'time',
-  }
+  
 
   constructor(private route: ActivatedRoute){
     // To extract route param value
     this.route.paramMap.subscribe(
       (params)=> {
-        let feature = params.get('feature')
         let actionType = params.get('actionType')
-        console.log(feature);
-        if(feature){
-         this.feature = feature;
+        if(actionType){
          this.actionType = actionType;
          if(actionType === 'plan'){
           this.isOpenPlanning = true;
@@ -74,7 +69,7 @@ export class PlanningComponent {
   }
 
   getBg(){
-    return '../../../assets/' + this.model.bg;
+    return '../../../assets/' + this.model?.bg;
   }
 
   addPlanning(item: string){

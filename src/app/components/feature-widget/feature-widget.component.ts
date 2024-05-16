@@ -1,7 +1,9 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnInit, inject } from '@angular/core';
 import { FeatureModel } from '../../core/model/feature.model';
 import { CommonModule, NgFor, NgIf } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { Store } from '@ngrx/store';
+import { FeatureActions } from '../../store/features/features.actions';
 
 @Component({
   selector: 'app-feature-widget',
@@ -14,6 +16,8 @@ export class FeatureWidgetComponent implements OnInit{
 
   @Input('model') model: FeatureModel | undefined;
 
+  store = inject(Store);
+
   icon: string = '';
 
   buttonIndex: number | undefined = undefined;
@@ -22,9 +26,8 @@ export class FeatureWidgetComponent implements OnInit{
     this.icon = this.model ? this.model.icon : '';
   }
 
-  selectButton(idx: number){
-    this.buttonIndex = idx;
-    // Eliminare quando verra' inserito NGRX e il dispatch della action
+  selectButton(){
+    this.store.dispatch(FeatureActions.setCurrentFeature({payload: this.model!}));
   }
 
   
