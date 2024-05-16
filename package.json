@@ -23,6 +23,7 @@
     "@ngrx/store": "^17.2.0",
     "@ngrx/store-devtools": "^17.2.0",
     "@swimlane/ngx-charts": "^20.5.0",
+    "angular-local-storage": "^0.7.1",
     "bootstrap": "^5.3.3",
     "bootstrap-icons": "^1.11.3",
     "luxon": "^3.4.4",

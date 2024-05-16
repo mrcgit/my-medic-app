@@ -7,6 +7,7 @@ import { Store } from '@ngrx/store';
 import { FeatureActions } from './store/features/features.actions';
 
 
+
 @Component({
     selector: 'app-root',
     standalone: true,
@@ -17,7 +18,7 @@ import { FeatureActions } from './store/features/features.actions';
 export class AppComponent {
   title = 'my-medic-app';
 
-  store = inject(Store)
+  store = inject(Store);
 
 
   constructor(){
