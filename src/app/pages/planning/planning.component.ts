@@ -23,16 +23,14 @@ export class PlanningComponent {
   feature: string = '';
   actionType: string | null = null;
 
-
-  isOpenPlanning = false;
-  isOpenRegister = false;
+  isOpenPlanning: boolean = false;
+  isOpenRegister: boolean = false;
 
 
   hours: string = '';
   minutes: string = '';
   selectedTime: string | undefined= undefined;
   plannings: string[] = [];
-
   
 
   constructor(private route: ActivatedRoute){

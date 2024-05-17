@@ -6,6 +6,7 @@ import { Store } from '@ngrx/store';
 import { PressureActions } from '../../store/pressure/pressure.actions';
 import { selectPressureGraphModel, selectPressureParams } from '../../store/pressure/pressure.selectors';
 import { CommonModule } from '@angular/common';
+import { PressureGraphComponent } from "../../components/pressure-graph/pressure-graph.component";
 
 
 @Component({
@@ -13,27 +14,18 @@ import { CommonModule } from '@angular/common';
     standalone: true,
     templateUrl: './home.component.html',
     styleUrl: './home.component.scss',
-    imports: [LinearGraphComponent, TabellaGeneraleComponent, CommonModule],
+    imports: [LinearGraphComponent, TabellaGeneraleComponent, CommonModule, PressureGraphComponent]
 })
 export class HomeComponent{
 
   store = inject(Store);
-  //pressureParams = this.store.selectSignal(selectPressureParams)();
-  pressureModel = this.store.selectSignal(selectPressureGraphModel)();
+  pressureParams = this.store.selectSignal(selectPressureParams)();
 
   constructor(){
     this.store.dispatch(PressureActions.loadPressureParams());
   }
 
 
-  
 
-
- 
-
-
-  getPressureData(){
-    return undefined;
-  } 
 
 }

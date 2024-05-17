@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, EventEmitter, Input, Output, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { MedicParameter } from '../../core/model/medic-parameter';
 import { PressureActions } from '../../store/pressure/pressure.actions';
@@ -16,6 +16,8 @@ export class PressureRegisterComponent {
   pressureMax:  string | undefined;
 
   store = inject(Store);
+  
+
 
   save(){
     if(this.pressureMax && this.pressureMin){
@@ -27,6 +29,7 @@ export class PressureRegisterComponent {
       
       this.store.dispatch(PressureActions.addPressureParam({payload: item}));
       console.log(item);
+   
     }
   }
 
