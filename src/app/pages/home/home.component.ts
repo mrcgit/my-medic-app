@@ -1,4 +1,4 @@
-import { Component, inject } from '@angular/core';
+import { Component, computed, inject } from '@angular/core';
 import { LinearGraphComponent } from "../../linear-graph/linear-graph.component";
 import { TabellaGeneraleComponent } from "../../tabella-generale/tabella-generale.component";
 import { MedicParameter } from '../../core/model/medic-parameter';
@@ -24,25 +24,31 @@ export class HomeComponent {
   }
 
 
-  getPressureModel(): any[] | undefined{
+  getPressureModel(){
+    return computed(()=>{
+     return this.computePressureModel();
+    })()
+  }
+
+
+  computePressureModel(): any[] | undefined{
 
     if(this.pressureParams && this.pressureParams.length > 0){
-      const lastParam = this.pressureParams[this.pressureParams.length -1];
 
-      const name1 = lastParam.list[0]
-      const name2 = lastParam.list[1]
+      const name1 = "sistolica"
+      const name2 = "diastolica"
   
       const serie1 = this.pressureParams.map((p) =>{
         return {
             name: p.date,
-            value: p.list[0][0]
+            value: p.list["sistolica"]
         };
       });
   
       const serie2 = this.pressureParams.map((p)=> {
         return {
           name: p.date,
-          value: p.list[1][0]
+          value: p.list["diastolica"]
         }
       })
   

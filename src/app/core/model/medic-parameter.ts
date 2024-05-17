@@ -9,3 +9,14 @@ export interface MedicParameter{
 }
 
 
+export interface GraphSerieModel{
+    name: string,
+    series: GraphItemModel[]
+}
+
+
+export type GraphItemModel = {
+    name: string,
+    value: string,
+}
+
