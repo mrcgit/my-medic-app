@@ -5,6 +5,7 @@ import { NavbarComponent } from "./components/navbar/navbar.component";
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { Store } from '@ngrx/store';
 import { FeatureActions } from './store/features/features.actions';
+import { DatePipe } from '@angular/common';
 
 
 
@@ -13,7 +14,7 @@ import { FeatureActions } from './store/features/features.actions';
     standalone: true,
     templateUrl: './app.component.html',
     styleUrl: './app.component.scss',
-    imports: [RouterOutlet, RouterModule, NavbarComponent, NgbModule]
+    imports: [RouterOutlet, RouterModule, NavbarComponent, NgbModule],
 })
 export class AppComponent {
   title = 'my-medic-app';

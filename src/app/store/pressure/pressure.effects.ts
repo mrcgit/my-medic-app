@@ -60,77 +60,7 @@ export const loadPressureParms = createEffect(
       )
 
 
-      export const loadPressureGraphModel = createEffect(
-        (
-          actions$ = inject(Actions),
-        ) => {
-            return actions$
-              .pipe(
-                ofType(PressureActions.loadPressureGraphModel),
-                mergeMap(
-                  (action) => computePressureModel(action.payload)
-                    .pipe(
-                      map((response) => {
-                        return PressureActions.loadPressureGraphModelSuccess({ payload: response })
-                      }),
-                      catchError(() => of(PressureActions.loadError()))
-                    )
-                ),
-              )
-          },
-          {
-            functional: true
-          }
-        )
 
-
-        const computePressureModel = (pressureParams: MedicParameter[]): Observable<GraphSerieModel[]> =>{
-          let result;
-
-          if(pressureParams && pressureParams.length > 0){
-      
-            const name1 = "sistolica"
-            const name2 = "diastolica"
-        
-            const serie1 = pressureParams.map((p) =>{
-              return {
-                  name: p.date.toDateString(),
-                  value: p.list["sistolica"]
-              };
-            });
-        
-            const serie2 = pressureParams.map((p)=> {
-              return {
-                name: p.date.toDateString(),
-                value: p.list["diastolica"]
-              }
-            })
-        
-            const model: GraphSerieModel[] = [
-              {
-                "name": name1,
-                "series": serie1
-              },
-              {
-                "name": name2,
-                "series": serie2
-              }
-            ]
-           result = model;
-          }  else {
-            result =  [
-              {
-                "name": '',
-                "series": []
-              },
-              {
-                "name": '',
-                "series": []
-              }
-            ]
-          }
-          return of(result);
-        }
 
 
    

@@ -12,6 +12,7 @@ import * as pressureEffets from './store/pressure/pressure.effects';
 import { featuresReducer } from './store/features/features.reducer';
 import { provideHttpClient } from '@angular/common/http';
 import { pressureReducer } from './store/pressure/pressure.reducer';
+import { CommonModule, DatePipe } from '@angular/common';
 
 
 export const appConfig: ApplicationConfig = {
@@ -23,6 +24,7 @@ export const appConfig: ApplicationConfig = {
     provideState({name: 'slice1', reducer: featuresReducer}),
     provideState({name: 'slice2', reducer: pressureReducer}),
     provideEffects([featuresEffets, pressureEffets]),
-    provideStoreDevtools({maxAge: 25, logOnly: !isDevMode()})
+    provideStoreDevtools({maxAge: 25, logOnly: !isDevMode()}),
+    DatePipe
   ]
 };

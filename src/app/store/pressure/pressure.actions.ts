@@ -14,8 +14,6 @@ export const PressureActions = createActionGroup(
             'loadPressureParamsSuccess':  props<{payload: MedicParameter[]}>(),
             'addPressureParam':props<{payload: MedicParameter}>(),
             'addPressureParamSuccess':props<{payload: ApiResponse}>(),
-            'loadPressureGraphModel': props<{payload: MedicParameter[]}>(),
-            'loadPressureGraphModelSuccess': props<{payload: GraphSerieModel[]}>(),
             'loadError': emptyProps(),
         }
     }
