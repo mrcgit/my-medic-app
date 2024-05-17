@@ -2,6 +2,6 @@
 
 <h5 class="title">Diagramma Sistolica-Diastolica</h5>
 
-<div *ngIf="getPressureModel()">
-    <app-linear-graph  [multi]="getPressureModel()!"></app-linear-graph>
+<div *ngIf="pressureModel">
+    <app-linear-graph  [multi]="pressureModel"></app-linear-graph>
 </div>

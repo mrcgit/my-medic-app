@@ -21,5 +21,6 @@ export const pressureReducer = createReducer(
     initialState,
     on(PressureActions.loadPressureParamsSuccess, (state,action)=> ({...state, items: action.payload})),
     on(PressureActions.addPressureParamSuccess, (state,action)=> ({...state, items: [...state.items, action.payload.item]})),
+    on(PressureActions.loadPressureGraphModelSuccess, (state,action)=> ({...state, model: action.payload})),
 
 )
