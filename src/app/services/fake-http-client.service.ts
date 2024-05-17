@@ -9,9 +9,14 @@ import { PRESSURE_PARM_EP } from './endpoint';
 export class FakeHttpClientService {
   endPoint = '';
 
-  constructor( ) {
-    
-   }
+  constructor( ) {}
+
+
+  sequence(): string{
+    const data = localStorage.getItem("sequence")
+    return data ? data + 1 : "1"; 
+
+  }
 
    setEndPoint(endPoint: string){
     this.endPoint = endPoint;
@@ -36,15 +41,11 @@ export class FakeHttpClientService {
   delete<T>(id: string): Observable<T>{
 
     const params = localStorage.getItem(this.endPoint);
-    let list; 
+    let list = params ? JSON.parse(params) : [];
 
-    if(params){
-     list = JSON.parse(params)
-    }
-    const item = (list as Array<{id: string}>).find((item)=> item.id === id);
-    if(item){
-
-
+    const index = (list as Array<{id: string}>).findIndex((item)=> item.id === id)
+    if(index){
+      (list as Array<{id: string}>).slice(index,1);
     }
 
     const listAsString = JSON.stringify(list);
@@ -61,11 +62,11 @@ export class FakeHttpClientService {
   post<T>(url: string, data: any):  Observable<T>{
     
     const params = localStorage.getItem(this.endPoint);
-    let list; 
+    const list = params ? JSON.parse(params) : [];
+    
+    const id = this.sequence();
+    data.id = id;
 
-    if(params){
-     list = JSON.parse(params)
-    }
     list.push(data);
     const listAsString = JSON.stringify(list);
     
