@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { MedicParameter } from '../core/model/medic-parameter';
 
 @Component({
   selector: 'app-tabella-generale',
@@ -8,5 +9,8 @@ import { Component } from '@angular/core';
   styleUrl: './tabella-generale.component.scss'
 })
 export class TabellaGeneraleComponent {
+
+  @Input('pressure-data') pressureData: MedicParameter | undefined= undefined
+
 
 }

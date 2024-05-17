@@ -7,8 +7,11 @@ import { provideState, provideStore } from '@ngrx/store';
 import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import * as featuresEffets from './store/features/features.effects';
+import * as pressureEffets from './store/pressure/pressure.effects';
+
 import { featuresReducer } from './store/features/features.reducer';
 import { provideHttpClient } from '@angular/common/http';
+import { pressureReducer } from './store/pressure/pressure.reducer';
 
 
 export const appConfig: ApplicationConfig = {
@@ -18,8 +21,8 @@ export const appConfig: ApplicationConfig = {
     provideHttpClient(),
     provideStore(),
     provideState({name: 'slice1', reducer: featuresReducer}),
-    //provideState({name: 'slice2', reducer: misureReducer}),
-    provideEffects([featuresEffets]),
+    provideState({name: 'slice2', reducer: pressureReducer}),
+    provideEffects([featuresEffets, pressureEffets]),
     provideStoreDevtools({maxAge: 25, logOnly: !isDevMode()})
   ]
 };

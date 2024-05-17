@@ -4,7 +4,7 @@
 export interface MedicParameter{
     id: string;
     date: Date;
-    list: Map<string,number>[];
+    list: { [key: string]: string };
     name: string
 }
 

@@ -6,6 +6,7 @@ import { Observable } from 'rxjs';
 import { PRESSURE_PARM_EP } from './endpoint';
 import { MedicParameter } from '../core/model/medic-parameter';
 import { FakeHttpClientService } from './fake-http-client.service';
+import { ApiResponse } from '../core/model/response.model';
 
 //import { NEWS_FEED, NEWS_SECTIONS, NEWS_SECTIONS_NAMES, NEWS_SECTIONS_PARAMS } from '../apis/endpoints';
 

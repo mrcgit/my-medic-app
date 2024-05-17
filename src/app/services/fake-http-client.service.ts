@@ -14,7 +14,9 @@ export class FakeHttpClientService {
 
   sequence(): string{
     const data = localStorage.getItem("sequence")
-    return data ? data + 1 : "1"; 
+    const id = data ? Number(data) + 1 : 1;
+    localStorage.setItem("sequence", id.toString())
+    return id.toString(); 
 
   }
 
@@ -52,7 +54,7 @@ export class FakeHttpClientService {
     
     localStorage.setItem(this.endPoint, listAsString);
 
-    const mockData: T = {code: 0, message: "OK"} as T; 
+    const mockData: T = {code: 0, message: "OK", item: null} as T; 
 
     return of(mockData);
   }
@@ -65,14 +67,15 @@ export class FakeHttpClientService {
     const list = params ? JSON.parse(params) : [];
     
     const id = this.sequence();
-    data.id = id;
+    let cloneData = Object.assign({}, data)
+    cloneData.id = id;
 
-    list.push(data);
+    list.push(cloneData);
     const listAsString = JSON.stringify(list);
     
     localStorage.setItem(this.endPoint, listAsString);
 
-    const mockData: T = {code: 0, message: "OK"} as T; 
+    const mockData: T = {code: 0, message: "OK", item: cloneData} as T; 
 
     return of(mockData);
   }

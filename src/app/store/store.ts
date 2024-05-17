@@ -1,8 +1,9 @@
-import { FeatureSlice } from "@ngrx/store";
-import { FeatureModel } from "../core/model/feature.model";
+
 import { FeatureState } from "./features/features.reducer";
+import { PressureParamsState } from "./pressure/pressure.reducer";
 
 export type AppState = {
     slice1: FeatureState
+    slice2: PressureParamsState
     
 }

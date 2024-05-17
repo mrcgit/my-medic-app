@@ -1,4 +1,7 @@
-<app-tabella-generale></app-tabella-generale>
+<app-tabella-generale [pressure-data]="getPressureData()"></app-tabella-generale>
 
 <h5 class="title">Diagramma Sistolica-Diastolica</h5>
-<app-linear-graph [multi]="model"></app-linear-graph>
+
+<div *ngIf="getPressureModel()">
+    <app-linear-graph  [multi]="getPressureModel()!"></app-linear-graph>
+</div>

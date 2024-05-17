@@ -4,7 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { FeatureModel } from '../../core/model/feature.model';
-import { PressureRegisterComponent } from "../../pressure-register/pressure-register.component";
+import { PressureRegisterComponent } from "../../components/pressure-register/pressure-register.component";
 import { Store } from '@ngrx/store';
 import { selectCurrentFeature } from '../../store/features/features.selectors';
 

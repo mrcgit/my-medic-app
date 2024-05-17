@@ -1,6 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
 import { FeatureActions } from "./features.actions";
-import { AppState } from "../store";
 import { FeatureModel } from "../../core/model/feature.model";
 
 
