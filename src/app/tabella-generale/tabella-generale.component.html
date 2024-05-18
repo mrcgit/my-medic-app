@@ -12,17 +12,17 @@
             <td>12:30</td>
             <td>16/05/2024</td>
         </tr>
-        <tr>
+        <tr *ngIf="getPressureModel()">
             <th scope="row">Sistolica</th>
-            <td>-</td>
-            <td>12:30</td>
-            <td>16/05/2024</td>
+            <td>{{getPressureModel()!.list["sistolica"]}}</td>
+            <td>{{getPressureModel()!.date | date:'HH:mm'}}</td>
+            <td>{{getPressureModel()!.date | date:'dd/MM/yyyy'}}</td>
         </tr>
-        <tr>
+        <tr *ngIf="getPressureModel()">
             <th scope="row">Diastolica</th>
-            <td>-</td>
-            <td>12:30</td>
-            <td>16/05/2024</td>
+            <td>{{getPressureModel()!.list["diastolica"]}}</td>
+            <td>{{getPressureModel()!.date | date:'HH:mm'}}</td>
+            <td>{{getPressureModel()!.date | date:'dd/MM/yyyy'}}</td>
         </tr>
         <tr>
             <th scope="row">Satur. Oss.</th>

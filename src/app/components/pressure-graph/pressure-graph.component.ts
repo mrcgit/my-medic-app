@@ -5,7 +5,7 @@ import { Store } from '@ngrx/store';
 import { selectPressureGraphModel } from '../../store/pressure/pressure.selectors';
 
 @Component({
-    selector: 'app-pressure-graph',
+    selector: 'pressure-graph',
     standalone: true,
     templateUrl: './pressure-graph.component.html',
     styleUrl: './pressure-graph.component.scss',

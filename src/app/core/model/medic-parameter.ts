@@ -11,7 +11,7 @@ export interface MedicParameter{
 
 export interface GraphSerieModel{
     name: string,
-    series: GraphItemModel[]
+    series: GraphItemModel[],
 }
 
 

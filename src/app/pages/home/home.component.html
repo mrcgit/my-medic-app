@@ -1,7 +1,7 @@
-<app-tabella-generale [pressure-data]="pressureParams[0]"></app-tabella-generale>
+<tabella-generale></tabella-generale>
 
-<h5 class="title">Diagramma Sistolica-Diastolica</h5>
 
-<div *ngIf="pressureParams">
-    <app-pressure-graph></app-pressure-graph>
+
+<div *ngIf="hasPressureData()">
+    <pressure-graph></pressure-graph>
 </div>

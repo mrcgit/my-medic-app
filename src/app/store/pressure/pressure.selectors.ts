@@ -38,11 +38,11 @@ const computePressureModel = (pressureParams: MedicParameter[]): GraphSerieModel
       const model: GraphSerieModel[] = [
         {
           "name": name1,
-          "series": serie1
+          "series": serie1,
         },
         {
           "name": name2,
-          "series": serie2
+          "series": serie2,
         }
       ]
      result = model;
@@ -50,11 +50,11 @@ const computePressureModel = (pressureParams: MedicParameter[]): GraphSerieModel
       result =  [
         {
           "name": '',
-          "series": []
+          "series": [],
         },
         {
           "name": '',
-          "series": []
+          "series": [],
         }
       ]
     }

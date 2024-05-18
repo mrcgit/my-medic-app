@@ -1,16 +1,31 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Signal, computed, inject } from '@angular/core';
 import { MedicParameter } from '../core/model/medic-parameter';
+import { Store } from '@ngrx/store';
+import { selectPressureParams } from '../store/pressure/pressure.selectors';
+import { CommonModule } from '@angular/common';
 
 @Component({
-  selector: 'app-tabella-generale',
+  selector: 'tabella-generale',
   standalone: true,
-  imports: [],
+  imports: [CommonModule],
   templateUrl: './tabella-generale.component.html',
   styleUrl: './tabella-generale.component.scss'
 })
 export class TabellaGeneraleComponent {
 
-  @Input('pressure-data') pressureData: MedicParameter | undefined= undefined
+  store = inject(Store);
+  pressureData$: Signal<MedicParameter[]> = this.store.selectSignal(selectPressureParams);
+
+
+  getPressureModel(){
+    return computed(()=>{
+      if(this.pressureData$()){
+        const idx = this.pressureData$().length - 1;
+        return this.pressureData$()[idx];
+      } 
+      return undefined;
+    })()
+  }
 
 
 }

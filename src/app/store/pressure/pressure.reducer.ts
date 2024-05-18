@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 
-import { GraphSerieModel, MedicParameter } from "../../core/model/medic-parameter";
+import {  MedicParameter } from "../../core/model/medic-parameter";
 import { PressureActions } from "./pressure.actions";
 
 
@@ -18,6 +18,6 @@ const initialState: PressureParamsState = {
 export const pressureReducer = createReducer(
     initialState,
     on(PressureActions.loadPressureParamsSuccess, (state,action)=> ({...state, items: action.payload})),
-    on(PressureActions.addPressureParamSuccess, (state,action)=> ({...state, items: [...state.items, action.payload.item]}))
+    on(PressureActions.addPressureParamSuccess, (state,action)=> ({...state, items: state.items  ? [...state.items, action.payload.item] :  [ action.payload.item]}))
 
 )

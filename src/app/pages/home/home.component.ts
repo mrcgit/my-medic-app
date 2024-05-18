@@ -25,6 +25,9 @@ export class HomeComponent{
     this.store.dispatch(PressureActions.loadPressureParams());
   }
 
+  hasPressureData(){
+    return this.pressureParams && this.pressureParams.length > 0
+  }
 
 
 
