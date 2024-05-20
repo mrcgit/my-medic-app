@@ -1,6 +1,6 @@
 import { Component, OnInit, computed, inject } from '@angular/core';
 import { LinearGraphComponent } from "../../linear-graph/linear-graph.component";
-import { TabellaGeneraleComponent } from "../../tabella-generale/tabella-generale.component";
+import { TabellaGeneraleComponent } from "../../components/tabella-generale/tabella-generale.component";
 
 import { Store } from '@ngrx/store';
 import { PressureActions } from '../../store/pressure/pressure.actions';

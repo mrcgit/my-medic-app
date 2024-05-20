@@ -1,7 +1,7 @@
 import { Component, Input, Signal, computed, inject } from '@angular/core';
-import { MedicParameter } from '../core/model/medic-parameter';
+import { MedicParameter } from '../../core/model/medic-parameter';
 import { Store } from '@ngrx/store';
-import { selectPressureParams } from '../store/pressure/pressure.selectors';
+import { selectPressureParams } from '../../store/pressure/pressure.selectors';
 import { CommonModule } from '@angular/common';
 
 @Component({
