@@ -28,12 +28,7 @@ export class FakeHttpClientService {
   get<T>(url: string): Observable<T> {
 
     const params = localStorage.getItem(this.endPoint);
-    let list; 
-
-    if(params){
-     list = JSON.parse(params)
-    }
-    
+    const list = params ? JSON.parse(params) : [];
     const mockData: T = list as T; 
 
     return of(mockData);
@@ -46,8 +41,10 @@ export class FakeHttpClientService {
     let list = params ? JSON.parse(params) : [];
 
     const index = (list as Array<{id: string}>).findIndex((item)=> item.id === id)
-    if(index!== -1){
-      (list as Array<{id: string}>).slice(index,1);
+    if(index > 0){
+      list = (list as Array<{id: string}>).splice(index,1);
+    } else if(index === 0){
+      list = [];
     }
 
     const listAsString = JSON.stringify(list);
