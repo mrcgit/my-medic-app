@@ -3,11 +3,12 @@ import { FormsModule } from '@angular/forms';
 import { MedicParameter } from '../../core/model/medic-parameter';
 import { PressureActions } from '../../store/pressure/pressure.actions';
 import { Store } from '@ngrx/store';
+import { RouterModule } from '@angular/router';
 
 @Component({
-  selector: 'app-pressure-register',
+  selector: 'pressure-register',
   standalone: true,
-  imports: [FormsModule],
+  imports: [FormsModule, RouterModule],
   templateUrl: './pressure-register.component.html',
   styleUrl: './pressure-register.component.scss'
 })
@@ -32,5 +33,6 @@ export class PressureRegisterComponent {
    
     }
   }
+
 
 }
