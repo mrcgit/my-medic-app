@@ -1,4 +1,13 @@
-.title{
-    text-align: center;
-    font-size: 16px;
+
+.page-wrapper{
+    background-color: #f7f6f6;
+    height: calc(100vh - 80px);
+    padding: 10px;
+
+    .title{
+        text-align: center;
+        padding: 20px;
+        letter-spacing: 2px;
+        font-size: 16px;
+    }
 }

@@ -1,7 +1,12 @@
-<tabella-generale></tabella-generale>
+<div class="page-wrapper">
 
+    <tabella-generale></tabella-generale>
+    
+    
+    
+    <div *ngIf="hasPressureData()">
+        <pressure-graph></pressure-graph>
+    </div>
 
-
-<div *ngIf="hasPressureData()">
-    <pressure-graph></pressure-graph>
 </div>
+
