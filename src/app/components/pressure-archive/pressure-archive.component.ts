@@ -1,5 +1,5 @@
 import { CommonModule } from '@angular/common';
-import { Component, Input, Signal, inject } from '@angular/core';
+import { Component, Input, Signal, computed, inject } from '@angular/core';
 import { MedicParameter } from '../../core/model/medic-parameter';
 import { PressureActions } from '../../store/pressure/pressure.actions';
 import { Store } from '@ngrx/store';
@@ -24,6 +24,13 @@ export class PressureArchiveComponent {
 
   deleteRecord(p: MedicParameter){
     this.store.dispatch(PressureActions.deletePressionParams({payload: p}))
-  }
 
+  }
+  
+  getParams() {
+    return  computed(()=>{
+      return this.pressureParams$
+    })();
+
+  }
 }
