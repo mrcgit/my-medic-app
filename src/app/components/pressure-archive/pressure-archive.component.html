@@ -1,0 +1,26 @@
+
+<div class="wrapper">
+    <h5 class="title">
+        Archivio misurazioni
+    </h5>
+    <table class="table table-striped">
+        <tbody>
+        <tr>
+            <th scope="row">Data</th>
+            <th scope="row">Ora</th>
+            <th scope="row">Sistolica</th>
+            <th scope="row">Diastolica</th>
+            <th scope="row"></th>
+        </tr>
+        @for(p of  pressureParams$() ; track $index){
+        <tr>
+            <td>{{p.date | date: 'dd/MM/yyyy'}}</td>
+            <td>{{p.date | date:'HH:mm'}}</td>
+            <td>{{p.list["sistolica"]}}</td>
+            <td>{{p.list["diastolica"]}}</td>
+            <th scope="row"><button (click)="deleteRecord(p)" class="btn btn-primary btn-sm">Elimina</button></th>
+        </tr>
+    }
+        </tbody>
+     </table>
+</div>

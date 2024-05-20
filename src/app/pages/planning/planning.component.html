@@ -12,6 +12,8 @@
         <div class="content-row">
             <button (click)="openRegister()" type="button" class="btn btn-primary btn-sm">{{model.buttons[0].label}}</button>
             <button (click)="openPlanning()" class="button" class="btn btn-primary btn-sm">{{model.buttons[1].label}}</button>
+            <button  [routerLink]="['/archive/' + model.id]" type="submit" class="btn btn-primary btn-sm">Archivio</button>
+            
         </div>
         
         <!-- PLANNING PAN-->

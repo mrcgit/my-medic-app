@@ -4,20 +4,22 @@ import { Store } from '@ngrx/store';
 import { PressureActions } from '../../store/pressure/pressure.actions';
 import { selectPressureParams } from '../../store/pressure/pressure.selectors';
 import { CommonModule } from '@angular/common';
+import { PressureArchiveComponent } from "../../components/pressure-archive/pressure-archive.component";
 
 @Component({
-  selector: 'app-archive',
-  standalone: true,
-  imports: [CommonModule],
-  templateUrl: './archive.component.html',
-  styleUrl: './archive.component.scss'
+    selector: 'app-archive',
+    standalone: true,
+    templateUrl: './archive.component.html',
+    styleUrl: './archive.component.scss',
+    imports: [CommonModule, PressureArchiveComponent]
 })
 export class ArchiveComponent {
   store = inject(Store);
 
   name: string | undefined = undefined
+  
+  pressure: boolean = false;
 
-  pressureParams = this.store.selectSignal(selectPressureParams)();
 
 
   constructor(private route: ActivatedRoute){
@@ -28,8 +30,9 @@ export class ArchiveComponent {
         if(name){
          this.name = name;
          switch (name) {
-          case 'pressure':
-            this.store.dispatch(PressureActions.loadPressureParams());
+          case 'pressione':
+            this.pressure = true;
+           
             break;
          
           default:

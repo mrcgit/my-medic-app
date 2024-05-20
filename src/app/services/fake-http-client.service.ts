@@ -46,7 +46,7 @@ export class FakeHttpClientService {
     let list = params ? JSON.parse(params) : [];
 
     const index = (list as Array<{id: string}>).findIndex((item)=> item.id === id)
-    if(index){
+    if(index!== -1){
       (list as Array<{id: string}>).slice(index,1);
     }
 

@@ -18,6 +18,7 @@ const initialState: PressureParamsState = {
 export const pressureReducer = createReducer(
     initialState,
     on(PressureActions.loadPressureParamsSuccess, (state,action)=> ({...state, items: action.payload})),
-    on(PressureActions.addPressureParamSuccess, (state,action)=> ({...state, items: state.items  ? [...state.items, action.payload.item] :  [ action.payload.item]}))
-
+    on(PressureActions.addPressureParamSuccess, (state,action)=> ({...state, items: state.items  ? [...state.items, action.payload.item] :  [ action.payload.item]})),
+    on(PressureActions.deletePressureParamSuccess, (state,action)=> ({...state, items: state.items  ? state.items.filter((i)=>i.id !== action.payload.id) :  []}))
 )
+

@@ -5,6 +5,7 @@ interface ButtonModel{
 
 
 export interface FeatureModel{
+    id: string,
     name: string;
     description: string;
     buttons: ButtonModel[]

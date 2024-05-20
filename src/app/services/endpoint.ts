@@ -1,4 +1,4 @@
-export const FEATURE_ENDPOINT = 'https://run.mocky.io/v3/63c9a006-9134-40d9-902b-0db46f48b52c';
+export const FEATURE_ENDPOINT = 'https://run.mocky.io/v3/4d975a8c-3e31-4cc7-bf8b-cb4b56cafdb8';
 
 export const PRESSURE_PARM_EP = {
     GET_ALL : '/pressure/all',

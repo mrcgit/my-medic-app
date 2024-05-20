@@ -9,6 +9,7 @@ export interface FeatureState  {
 }
 
 const defaultFeature = {
+    id: '',
     name: '',
     description: '',
     buttons: [],

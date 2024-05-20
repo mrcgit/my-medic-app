@@ -60,6 +60,31 @@ export const loadPressureParms = createEffect(
       )
 
 
+      export const deletePressionParams = createEffect(
+        (
+          actions$ = inject(Actions),
+          service$ = inject(PressureParamService)
+        ) => {
+            return actions$
+              .pipe(
+                ofType(PressureActions.deletePressionParams),
+                mergeMap(
+                  (action) => service$.delete(action.payload.id)
+                    .pipe(
+                      map((response) => {
+                        return PressureActions.deletePressureParamSuccess({ payload: action.payload })
+                      }),
+                      catchError(() => of(PressureActions.loadError()))
+                    )
+                ),
+              )
+          },
+          {
+            functional: true
+          }
+        )
+
+
 
 
 

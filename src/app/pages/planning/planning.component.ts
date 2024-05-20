@@ -1,7 +1,7 @@
 import { CommonModule } from '@angular/common';
 import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, RouterModule } from '@angular/router';
 import { NgxMaterialTimepickerModule } from 'ngx-material-timepicker';
 import { FeatureModel } from '../../core/model/feature.model';
 import { PressureRegisterComponent } from "../../components/pressure-register/pressure-register.component";
@@ -13,7 +13,7 @@ import { selectCurrentFeature } from '../../store/features/features.selectors';
     standalone: true,
     templateUrl: './planning.component.html',
     styleUrl: './planning.component.scss',
-    imports: [CommonModule, FormsModule, NgxMaterialTimepickerModule, PressureRegisterComponent]
+    imports: [CommonModule, FormsModule, NgxMaterialTimepickerModule, PressureRegisterComponent, RouterModule]
 })
 export class PlanningComponent {
 
