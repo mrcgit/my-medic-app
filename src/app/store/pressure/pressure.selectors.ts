@@ -21,14 +21,14 @@ const computePressureModel = (pressureParams: MedicParameter[]): GraphSerieModel
       const name1 = "sistolica"
       const name2 = "diastolica"
   
-      const serie1 = pressureParams.map((p) =>{
+      const serie1 = pressureParams.slice(-7).map((p) =>{
         return {
             name: utils.formatDate(p.date, "dd/MM/yyyy:HH:mm")!,
             value: p.list["sistolica"]
         };
       });
   
-      const serie2 = pressureParams.map((p)=> {
+      const serie2 = pressureParams.slice(-7).map((p)=> {
         return {
           name:utils.formatDate(p.date, "dd/MM/yyyy:HH:mm")!,
           value: p.list["diastolica"]
