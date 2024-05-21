@@ -1,13 +1,12 @@
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { PRESSURE_PARM_EP } from './endpoint';
 
 
 @Injectable({
   providedIn: 'root'
 })
 export class FakeHttpClientService {
-  endPoint = '';
+  endPoint = 'parameters';
 
   constructor( ) {}
 
@@ -20,13 +19,8 @@ export class FakeHttpClientService {
 
   }
 
-   setEndPoint(endPoint: string){
-    this.endPoint = endPoint;
-   }
-
 
   get<T>(url: string): Observable<T> {
-
     const params = localStorage.getItem(this.endPoint);
     const list = params ? JSON.parse(params) : [];
     const mockData: T = list as T; 

@@ -11,7 +11,7 @@ import { ApiResponse } from '../core/model/response.model';
 export class TemperatureParamService {
 
   constructor(private http: FakeHttpClientService) { 
-    http.setEndPoint("temperature");
+
   }
 
   getAll(): Observable<MedicParameter[]>{

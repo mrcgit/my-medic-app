@@ -18,7 +18,6 @@ export class PressureParamService {
 
 
   constructor(private http: FakeHttpClientService) { 
-    http.setEndPoint("pressure");
   }
 
   getAll(): Observable<MedicParameter[]>{

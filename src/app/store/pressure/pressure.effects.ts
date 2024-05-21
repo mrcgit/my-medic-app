@@ -23,7 +23,7 @@ export const loadPressureParms = createEffect(
               () => service$.getAll()
                 .pipe(
                   map((response) => {
-                    return PressureActions.loadPressureParamsSuccess({ payload: response })
+                    return PressureActions.loadPressureParamsSuccess({ payload: response.filter((p)=> p.name ==='pressure') })
                   }),
                   catchError(() => of(PressureActions.loadError()))
                 )

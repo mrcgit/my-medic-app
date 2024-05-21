@@ -24,7 +24,7 @@ export const loadTemeratureParams = createEffect(
               () => service$.getAll()
                 .pipe(
                   map((response) => {
-                    return TemperatureActions.loadTemperatureParamsSuccess({ payload: response })
+                    return TemperatureActions.loadTemperatureParamsSuccess({ payload: response.filter((p)=> p.name === 'temperature') })
                   }),
                   catchError(() => of(TemperatureActions.loadError()))
                 )
@@ -39,7 +39,7 @@ export const loadTemeratureParams = createEffect(
     export const addTemperatureParam = createEffect(
       (
         actions$ = inject(Actions),
-        service$ = inject(PressureParamService)
+        service$ = inject(TemperatureParamService)
       ) => {
           return actions$
             .pipe(
@@ -64,7 +64,7 @@ export const loadTemeratureParams = createEffect(
       export const deletePressionParams = createEffect(
         (
           actions$ = inject(Actions),
-          service$ = inject(PressureParamService)
+          service$ = inject(TemperatureParamService)
         ) => {
             return actions$
               .pipe(
