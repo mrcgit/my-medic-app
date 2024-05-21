@@ -3,6 +3,7 @@ import { MedicParameter } from '../../core/model/medic-parameter';
 import { Store } from '@ngrx/store';
 import { selectPressureParams } from '../../store/pressure/pressure.selectors';
 import { CommonModule } from '@angular/common';
+import { selectTemeratureParams } from '../../store/temperature/temperature.selectors';
 
 @Component({
   selector: 'tabella-generale',
@@ -15,6 +16,7 @@ export class TabellaGeneraleComponent {
 
   store = inject(Store);
   pressureData$: Signal<MedicParameter[]> = this.store.selectSignal(selectPressureParams);
+  temperatureData$: Signal<MedicParameter[]> = this.store.selectSignal(selectTemeratureParams)
 
 
   getPressureModel(){
@@ -25,6 +27,16 @@ export class TabellaGeneraleComponent {
       } 
       return undefined;
     })()
+  }
+
+  getTemperatureModel(){
+    return computed(()=>{
+      if(this.temperatureData$()){
+        const idex = this.temperatureData$().length -1
+        return this.temperatureData$()[idex];
+      } 
+      return undefined;
+    })();
   }
 
 

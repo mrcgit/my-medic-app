@@ -6,11 +6,11 @@
     </h5>
     <table class="table table-striped">
         <tbody>
-        <tr>
+        <tr *ngIf="getTemperatureModel()">
             <th scope="row">Temperatura</th>
-            <td>-</td>
-            <td>12:30</td>
-            <td>16/05/2024</td>
+            <td>{{getTemperatureModel()!.list["temperatura"]}}</td>
+            <td>{{getTemperatureModel()!.date | date:'HH:mm'}}</td>
+            <td>{{getTemperatureModel()!.date | date:'dd/MM/yyyy'}}</td>
         </tr>
         <tr *ngIf="getPressureModel()">
             <th scope="row">Sistolica</th>
