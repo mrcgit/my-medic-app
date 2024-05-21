@@ -1,12 +1,9 @@
 
 import { inject } from "@angular/core";
-import { Actions, act, createEffect, ofType } from "@ngrx/effects";
-import { Observable, catchError, map, mergeMap, of } from "rxjs";
-import { ConfigurationService } from "../../services/configuration.service";
+import { Actions, createEffect, ofType } from "@ngrx/effects";
+import { catchError, map, mergeMap, of } from "rxjs";
 import { PressureActions } from "./pressure.actions";
 import { PressureParamService } from "../../services/pressure-param.service";
-import { GraphSerieModel, MedicParameter } from "../../core/model/medic-parameter";
-
 
 
 
