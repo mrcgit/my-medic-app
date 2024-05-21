@@ -19,14 +19,14 @@ import { PressureGraphComponent } from "../../components/pressure-graph/pressure
 export class HomeComponent{
 
   store = inject(Store);
-  pressureParams = this.store.selectSignal(selectPressureParams)();
+  pressureParams$ = this.store.selectSignal(selectPressureParams);
 
   constructor(){
     this.store.dispatch(PressureActions.loadPressureParams());
   }
 
   hasPressureData(){
-    return this.pressureParams && this.pressureParams.length > 0
+    return this.pressureParams$ && this.pressureParams$().length > 0
   }
 
 

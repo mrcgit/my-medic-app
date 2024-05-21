@@ -15,7 +15,7 @@ const initialState: TemperatureParamsState = {
     
 }
 
-export const pressureReducer = createReducer(
+export const temperatureReducer = createReducer(
     initialState,
     on(TemperatureActions.loadTemperatureParamsSuccess, (state,action)=> ({...state, items: action.payload})),
     on(TemperatureActions.addTemperatureParamSuccess, (state,action)=> ({...state, items: state.items  ? [...state.items, action.payload.item] :  [ action.payload.item]})),

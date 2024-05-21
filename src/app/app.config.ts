@@ -8,11 +8,13 @@ import { provideEffects } from '@ngrx/effects';
 import { provideStoreDevtools } from '@ngrx/store-devtools';
 import * as featuresEffets from './store/features/features.effects';
 import * as pressureEffets from './store/pressure/pressure.effects';
+import * as temperatureEffects from './store/temperature/temperature.effects';
 
 import { featuresReducer } from './store/features/features.reducer';
 import { provideHttpClient } from '@angular/common/http';
 import { pressureReducer } from './store/pressure/pressure.reducer';
-import { CommonModule, DatePipe } from '@angular/common';
+import { DatePipe } from '@angular/common';
+import { temperatureReducer } from './store/temperature/temperature.reducer';
 
 
 export const appConfig: ApplicationConfig = {
@@ -23,7 +25,8 @@ export const appConfig: ApplicationConfig = {
     provideStore(),
     provideState({name: 'slice1', reducer: featuresReducer}),
     provideState({name: 'slice2', reducer: pressureReducer}),
-    provideEffects([featuresEffets, pressureEffets]),
+    provideState({name: 'slice3', reducer: temperatureReducer}),
+    provideEffects([featuresEffets, pressureEffets,temperatureEffects ]),
     provideStoreDevtools({maxAge: 25, logOnly: !isDevMode()}),
     DatePipe
   ]
