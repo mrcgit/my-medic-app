@@ -35,6 +35,8 @@
               </ul>
         </div>
         <!-- REGISTER PAN-->
-        <pressure-register *ngIf="isOpenRegister"></pressure-register>
+        <pressure-register *ngIf="isOpenRegister && model.id === 'pressione' "></pressure-register>
+        <!-- TEMPERAURE PAN-->
+        <temperature-register *ngIf="isOpenRegister && model.id === 'temperatura' "></temperature-register>
     </div>
 </div>

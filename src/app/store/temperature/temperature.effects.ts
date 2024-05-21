@@ -6,6 +6,7 @@ import { ConfigurationService } from "../../services/configuration.service";
 import { TemperatureActions } from "./termperature.actions";
 import { PressureParamService } from "../../services/pressure-param.service";
 import { GraphSerieModel, MedicParameter } from "../../core/model/medic-parameter";
+import { TemperatureParamService } from "../../services/temperature-param.service";
 
 
 
@@ -14,7 +15,7 @@ import { GraphSerieModel, MedicParameter } from "../../core/model/medic-paramete
 export const loadTemeratureParams = createEffect(
     (
       actions$ = inject(Actions),
-      service$ = inject(PressureParamService)
+      service$ = inject(TemperatureParamService)
     ) => {
         return actions$
           .pipe(

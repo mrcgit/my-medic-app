@@ -7,13 +7,14 @@ import { FeatureModel } from '../../core/model/feature.model';
 import { PressureRegisterComponent } from "../../components/pressure-register/pressure-register.component";
 import { Store } from '@ngrx/store';
 import { selectCurrentFeature } from '../../store/features/features.selectors';
+import { TemperatureRegisterComponent } from "../../components/temperature-register/temperature-register.component";
 
 @Component({
     selector: 'app-planning',
     standalone: true,
     templateUrl: './planning.component.html',
     styleUrl: './planning.component.scss',
-    imports: [CommonModule, FormsModule, NgxMaterialTimepickerModule, PressureRegisterComponent, RouterModule]
+    imports: [CommonModule, FormsModule, NgxMaterialTimepickerModule, PressureRegisterComponent, RouterModule, TemperatureRegisterComponent]
 })
 export class PlanningComponent {
 
